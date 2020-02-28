@@ -2,6 +2,7 @@
 package tax;
 import java.util.*;
 import java.io.*;
+
  class lines {
        public String line;
        public int value;
@@ -24,7 +25,7 @@ public class TAX {
     }
      
         
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException{
        Scanner k = new Scanner(System.in);
        //fist page infomation below
        //test code
@@ -32,8 +33,14 @@ public class TAX {
         arr[0] = new lines("Peter", 100); // new stands for create an employee object
         arr[1] = new lines("Mary", 90);
        System.out.println(arr[0].line);
-       //import a file of line number, initialize an array of structures
        
+//import a file of line number, initialize an array of structures
+       Scanner file = new Scanner(new File ("lines.txt"));
+       int n = Integer.parseInt(file.nextLine());
+       for (int i = 0;i < n;i++){
+           arr[i] = new lines(file.nextLine(),0);
+       }
+       file.close();
        
        
     }
