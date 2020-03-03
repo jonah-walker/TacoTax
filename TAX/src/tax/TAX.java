@@ -22,26 +22,21 @@ import java.io.*;
 public class TAX {
     static int line10100(){//Employment income
         return 0;
-    }
-     
+    }    
         
     public static void main(String[] args) throws IOException{
        Scanner k = new Scanner(System.in);
        //fist page infomation below
        //test code
-       lines[] arr = new lines[100];  // new stands for create an array object
-        arr[0] = new lines("Peter", 100); // new stands for create an employee object
-        arr[1] = new lines("Mary", 90);
-       System.out.println(arr[0].line);
-       
-//import a file of line number, initialize an array of structures
+       lines[] arr = new lines[142];  // new stands for create an array object
+              
+        //import a file of line number, initialize an array of structures
        Scanner file = new Scanner(new File ("lines.txt"));
-       int n = Integer.parseInt(file.nextLine());
-       for (int i = 0;i < n;i++){
+       int numberoflines = Integer.parseInt(file.nextLine());
+       for (int i = 0;i < numberoflines;i++){
            arr[i] = new lines(file.nextLine(),0);
        }
-       file.close();
-       
+       file.close();      
        
     }
     
