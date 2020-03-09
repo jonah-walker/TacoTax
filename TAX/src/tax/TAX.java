@@ -7,11 +7,11 @@ import java.io.*;
        public String line;
        public int value;
 
-   // constructor
-   public lines(String line, int value) {
+    // constructor
+    public lines(String line, int value) {
       this.line = line;
       this.value = value;
-   }
+    }
        public String getLine() { return line; }
        public int getValue() { return value; }
        // setter
@@ -19,7 +19,26 @@ import java.io.*;
        public void setLine(String line) { this.line = line; }
        public void setValue(int value) { this.value = value; }
  }
+
+
+
+
+
+
 public class TAX {
+    
+    public static int getLineIndex(String line, lines[] arr){//get the index of the line given the line number
+        for(int i = 0; i < arr.length; i++){
+            if(line.equals(arr[i].getLine())){
+                return i;
+            }
+        }
+        return -1;
+    }
+    
+    
+    
+    
      Scanner k = new Scanner(System.in);//golbal scanner
     //variables
     String first_name, initial,last_name,street_name,po_box,city,Pro_tarr,postal_code,email;
