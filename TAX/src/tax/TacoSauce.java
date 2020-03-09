@@ -1,43 +1,32 @@
-
+/*
+made by thomas^4
+ */
 package tax;
-import java.util.*;
-import java.io.*;
 
- class lines {
-       public String line;
-       public double value;
+import java.util.Scanner;
 
-   // constructor
-   public lines(String line, double value) {
-      this.line = line;
-      this.value = value;
-   }
-       public String getLine() { return line; }
-       public double getValue() { return value; }
-       // setter
+/**
+ *
+ * @author Tvert
+ */
+public class TacoSauce {
 
-       public void setLine(String line) { this.line = line; }
-       public void setValue(double value) { this.value = value; }
- }
-public class TAX {
-     Scanner k = new Scanner(System.in);//golbal scanner
-    //variables
     String first_name, initial,last_name,street_name,po_box,city,Pro_tarr,postal_code,email;
-    String prov_terr_endyear,prov_terr_curent,prov_terr_busniess,partner_first_name;
+    String prov_terr_endyear,prov_terr_current,prov_terr_business,partner_first_name;
     int sin,birth_year,birth_month,birth_day,deceased_year,deceased_month,deceased_day,marital_status,apt_num = 0,rr ,street_num;
     int entry_month,entry_day,depart_month,depart_day,partner_sin,partner_netincome,partner_child_care_benefit,partner_child_care_repayment;
     boolean langE;//true means language is english
     boolean decased = false,self_employed = false,partner_self_employed = false, candian_res = true,partner;
     
-    
-     public void personal_info(){ //first page of infomation     
+   public void personal_info(){ //first page of infomation   
+        Scanner k = new Scanner(System.in);
         System.out.print("Please enter your First name: ");
         first_name = k.nextLine();
-        System.out.print("Please enter your the inital of you  name: ");
+        System.out.print("Please enter your the initial of your middle name: ");
         initial = k.nextLine();
         System.out.print("Please enter your last name: ");
         last_name = k.nextLine();
-        System.out.println("pick one of the folling options for mail");
+        System.out.println("pick one of the following options for mail");
         System.out.println("1. Mailing adress");
         System.out.println("2. PO box");
         int option;
@@ -52,7 +41,7 @@ public class TAX {
         }else{
             System.out.print("Please enter PO box: ");
             po_box = k.nextLine();
-            System.out.print("enter rural rote number(if you don't have one enter 0): ");
+            System.out.print("enter rural route number(if you don't have one enter 0): ");
             rr = k.nextInt();
         }
         System.out.print("Please enter your email: ");
@@ -83,8 +72,8 @@ public class TAX {
         System.out.println("3. Widowed");
         System.out.println("4. Divorced");
         System.out.println("5. Separated");
-        System.out.println("6. single");
-        System.out.print("please enter the number corrsponding to your Marital Status from the list above: ");
+        System.out.println("6. Single");
+        System.out.print("please enter the number corresponding to your Marital Status from the list above: ");
         marital_status = k.nextInt();
         if(marital_status <= 2){
             partner = true;
@@ -106,17 +95,17 @@ public class TAX {
             mar_input = k.nextLine();
             if(mar_input == "y") partner_self_employed = true;
         }
-        System.out.print("plase enter your province or tarritory of residence on December 31 2019:");
+        System.out.print("please enter your province or territory of residence on December 31 2019:");
         prov_terr_endyear = k.nextLine();
-        System.out.print("Please enter the province or tarritory you currently reside if diffent than mailing adress(if the same just hit enter): ");
-        prov_terr_curent = k.nextLine();
+        System.out.print("Please enter the province or territory you currently reside if diffent than mailing adress(if the same just hit enter): ");
+        prov_terr_current = k.nextLine();
         System.out.print("were you self-employed in 2019(y/n)? ");
         String emp;
         emp = k.nextLine();
         if(emp == "Y"){
             self_employed = true;
             System.out.print("Please enter the province or tarritory where your business had a permanet establishment: ");
-            prov_terr_busniess = k.nextLine();
+            prov_terr_business = k.nextLine();
         }
         String entry;
         System.out.print("Did you became a resident of Canada for income tax purpoeses in 2019(y/n)? ");
@@ -136,43 +125,5 @@ public class TAX {
                 depart_day = k.nextInt();               
             }
         }
-    
-     
-     
-     }
-     //line functions
-    public double line10100(){//Employment income
-        double income = 0.00;
-        System.out.print("please enter employment income(box 14 of all t4 slips): ");
-        income =  k.nextDouble();
-        return income;
-    }    
-        
-   
-    public static void main(String[] args) throws IOException{
-       
-       //fist page infomation below
-       //test code
-       lines[] arr = new lines[142];  // new stands for create an array object
-              
-        //import a file of line number, initialize an array of structures
-       Scanner file = new Scanner(new File ("lines.txt"));
-       int numberoflines = Integer.parseInt(file.nextLine());
-       for (int i = 0;i < numberoflines;i++){
-           arr[i] = new lines(file.nextLine(),0);
-       }
-       file.close();
-       TacoSauce ts = new TacoSauce();
-       ts.personal_info(); // first page
-       //second page
-            //someone please do this
-        
-            
-        //line functions
-       
-        
-
-       
-    }
-    
+   }
 }
