@@ -103,12 +103,51 @@ public class TaxLine30000s {
     }
     
     public int line30500(){
-        int n = arr[getLineIndex("30499", arr)];//money at 30499
+        double n = arr[getLineIndex("30499", arr)];//money at 30499
         return n*2230;
     }
     
     
-    public int line33099(){}
+    public double line33099(){
+        System.out.println("What is Medical expenses for self, spouse or common-law partner, and your dependent children born in 2002 or later");
+        double value;
+        value = k.nextInt;
+        return value;
+    }
+    
+    public double line33199(){//need more work
+        return 0;
+    }
+    
+    public double line33200(){
+        double n = 0.03*arr[getLineIndex("23600", arr)];//money at 23600 * 0.03
+        double L26 = 0;
+        double L27;
+        if(n>2352) L26 = n;
+        else L26 = 2352.0;
+        
+        double L25 = arr[getLineIndex("33099", arr)];//money at 33099
+        L27 = L25 - L26;
+        if(L27<0) L27 = 0;
+        
+        return L27 + arr[getLineIndex("31099", arr)];
+    }
+    
+    public double line33500(){
+        return sum1to24_for30000s + arr[getLineIndex("32000", arr)];
+    }
+    
+    public double line33800(){
+        return arr[getLineIndex("33500", arr)] * 1.15;
+    }
+    
+    public double line34900(){//needs more work
+        return 0;
+    }
+    
+    public double line35000(){
+        return arr[getLineIndex("33800", arr)] + arr[getLineIndex("34900", arr)]
+    }
     
     public static void main(String[] args) {
         // TODO code application logic here
