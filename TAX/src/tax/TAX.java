@@ -40,7 +40,7 @@ public class TAX {
     }
     
     
-    
+    lines[] arr = new lines[142];  // new stands for create an array object
     
      Scanner k = new Scanner(System.in);//golbal scanner
     //variables
@@ -176,7 +176,7 @@ public class TAX {
        
        //fist page infomation below
        //test code
-       lines[] arr = new lines[142];  // new stands for create an array object
+       
               
         //import a file of line number, initialize an array of structures
        Scanner file = new Scanner(new File ("lines.txt"));
