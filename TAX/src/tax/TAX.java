@@ -52,7 +52,7 @@ public class TAX {
     boolean decased = false,self_employed = false,partner_self_employed = false, candian_res = true,partner;
     
     
-     public void personal_info(){ //first page of infomation     
+    /* public void personal_info(){ //first page of infomation     
         System.out.print("Please enter your First name: ");
         first_name = k.nextLine();
         System.out.print("Please enter your the inital of you  name: ");
@@ -162,6 +162,7 @@ public class TAX {
      
      
      }
+*/
      //line functions
     public double line10100(){//Employment income
         double income = 0.00;
