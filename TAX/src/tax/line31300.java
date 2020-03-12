@@ -20,7 +20,7 @@ public class line31300 {
                 System.out.println("any other reasonable expenses related to the adoption required by a provincial or territorial government or an adoption agency licensed by a provincial or territorial government");
                 System.out.print("please input the amount of adoption expences incurred in 2019 ");
                 expences = k.nextDouble();
-                if(expences > amount) return amount;
+                if(expences >= amount) return amount;
                 else return expences;
             } else if (in == "n") {
                 return 0;
@@ -30,13 +30,3 @@ public class line31300 {
         }
     }
 }
-/*
-
-
-court costs and legal and administrative expenses related to an adoption order for the child
-reasonable and necessary travel and living expenses of the child and the adoptive parents
-document translation fees
-mandatory fees paid to a foreign institution
-mandatory expenses paid for the child's immigration
-any other reasonable expenses related to the adoption required by a provincial or territorial government or an adoption agency licensed by a provincial or territorial government
-*/
