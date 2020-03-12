@@ -3,21 +3,32 @@ made by thomas^4
  */
 package tax;
 
+import java.io.File;
 import java.util.Scanner;
+import tax.lines;
 
-/**
- *
- * @author Tvert
- */
+
+
 public class TacoSauce {
-
+    
+    public int getLineIndex(String line, lines[] arr){//get the index of the line given the line number
+        for(int i = 0; i < arr.length; i++){
+            if(line.equals(arr[i].getLine())){
+                return i;
+            }
+        }
+        return -1;
+    }
+    
+    Scanner k = new Scanner(System.in);
+    double line51090;
     String first_name, initial,last_name,street_name,po_box,city,Pro_tarr,postal_code,email;
     String prov_terr_endyear,prov_terr_current,prov_terr_business,partner_first_name;
     int sin,birth_year,birth_month,birth_day,deceased_year,deceased_month,deceased_day,marital_status,apt_num = 0,rr ,street_num;
     int entry_month,entry_day,depart_month,depart_day,partner_sin,partner_netincome,partner_child_care_benefit,partner_child_care_repayment;
     boolean langE;//true means language is english
     boolean decased = false,self_employed = false,partner_self_employed = false, candian_res = true,partner;
-    
+   
    public void personal_info(){ //first page of infomation   
         Scanner k = new Scanner(System.in);
         System.out.print("Please enter your First name: ");
@@ -126,4 +137,53 @@ public class TacoSauce {
             }
         }
    }
+   
+   public double line10100(){//Employment income
+        double income = 0.00;
+        System.out.print("please enter employment income(box 14 of all t4 slips): ");
+        income =  k.nextDouble();
+        return income;
+    }   
+   
+    public double line30100(lines arr[]){//Employment income
+        double amount;//amount to put at this line
+        double n = arr[getLineIndex("23600", arr)].value;//money at 23600
+        if(n<=37790) amount = 7494;
+        else if(n>=87750) amount = 0;
+        else{
+            amount = 7494 - (n-37790) * 0.15;
+            if(amount<0) amount = 0;
+        }
+        return amount;
+    }
+   
+  public double line30300(){
+        String inputu;
+        //month and day of 55220
+        int month;
+        int day;
+        //
+        double localline51090 = 0;
+        //amount return
+        double amount = 0;
+        if (marital_status <= 2){
+            System.out.println("Did your marital status change to other than married or common-law in 2019? (Y/N)");
+            inputu = k.nextLine();
+            if(inputu.equals("Y")){
+                System.out.println("Date of change");
+                System.out.println("Month(1-12):");
+                month = k.nextInt();
+                System.out.println("day(1-31):");
+                day = k.nextInt();       
+            }else return 0.00;
+        }
+        amount += 12069;
+        System.out.println("Are entitled to the Canada caregiver amount for your spouse or common-law partner? (Y/N)");
+        inputu = k.nextLine();
+        if(inputu.equals("Y")) localline51090 = 2230;
+        line51090 = localline51090;
+        amount = amount + localline51090 - partner_netincome;
+        if(amount<0) return 0.00;
+        return amount;
+    }
 }

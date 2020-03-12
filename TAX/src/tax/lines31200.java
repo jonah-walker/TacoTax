@@ -3,7 +3,7 @@ package tax;
 import java.util.Scanner;
 
 public class lines31200 {
-    public double line31200(){
+public double line31200(){
 //        Scanner k = new Scanner(System.in);
         double maxEI = 860.22;
         double EI = 0;

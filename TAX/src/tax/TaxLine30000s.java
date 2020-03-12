@@ -16,54 +16,16 @@ public static int getLineIndex(String line, lines[] arr){//get the index of the 
 
 public class TaxLine30000s {
 
-    double line51090;
+
     double sum1to24_for30000s;
     
     public double line30000(){//Employment income
         return 12069;
     } 
     
-    public double line30100(){//Employment income
-        double amount;//amount to put at this line
-        double n = arr[getLineIndex("23600", arr)];//money at 23600
-        if(n<=37790) amount = 7494;
-        else if(n>=87750) amount = 0;
-        else{
-            amount = 7494 - (n-37790) * 0.15;
-            if(amount<0) amount = 0;
-        }
-        return amount;
-    }
+    
         
-    public double line30300(){
-        String inputu;
-        //month and day of 55220
-        int month;
-        int day;
-        //
-        double localline51090 = 0;
-        //amount return
-        double amount = 0;
-        if (ts.marital_status <= 2){
-            System.out.println("Did your marital status change to other than married or common-law in 2019? (Y/N)");
-            inputu = k.nextLine();
-            if(inputu.equals("Y")){
-                System.out.println("Date of change");
-                System.out.println("Month(1-12):");
-                month = k.nextInt();
-                System.out.println("day(1-31):");
-                day = k.nextInt();       
-            }else return 0.00;
-        }
-        amount += 12069;
-        System.out.println("Are entitled to the Canada caregiver amount for your spouse or common-law partner? (Y/N)");
-        inputu = k.nextLine();
-        if(inputu.equals("Y")) localline51090 = 2230;
-        line51090 = localline51090;
-        amount = amount + localline51090 - ts.partner_netincome;
-        if(amount<0) return 0.00;
-        return amount;
-    }
+    
     
     //still needs work
     public double line30400(){ 
