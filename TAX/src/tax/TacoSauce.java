@@ -145,45 +145,220 @@ public class TacoSauce {
         return income;
     }   
    
-    public double line30100(lines arr[]){//Employment income
+   //30000
+    double sum1to24_for30000s;
+
+    public double line30000() {//Employment income
+        return 12069;
+    }
+
+    public double line30100(lines arr[]) {//Employment income
         double amount;//amount to put at this line
         double n = arr[getLineIndex("23600", arr)].value;//money at 23600
-        if(n<=37790) amount = 7494;
-        else if(n>=87750) amount = 0;
-        else{
-            amount = 7494 - (n-37790) * 0.15;
-            if(amount<0) amount = 0;
+        if (n <= 37790) {
+            amount = 7494;
+        } else if (n >= 87750) {
+            amount = 0;
+        } else {
+            amount = 7494 - (n - 37790) * 0.15;
+            if (amount < 0) {
+                amount = 0;
+            }
         }
         return amount;
     }
-   
-  public double line30300(){
+    
+    public double line30300() {
         String inputu;
         //month and day of 55220
         int month;
         int day;
-        //
         double localline51090 = 0;
         //amount return
         double amount = 0;
-        if (marital_status <= 2){
+        if (marital_status <= 2) {
             System.out.println("Did your marital status change to other than married or common-law in 2019? (Y/N)");
             inputu = k.nextLine();
-            if(inputu.equals("Y")){
+            if (inputu.equals("Y")) {
                 System.out.println("Date of change");
                 System.out.println("Month(1-12):");
                 month = k.nextInt();
                 System.out.println("day(1-31):");
-                day = k.nextInt();       
-            }else return 0.00;
+                day = k.nextInt();
+            } else {
+                return 0.00;
+            }
         }
         amount += 12069;
         System.out.println("Are entitled to the Canada caregiver amount for your spouse or common-law partner? (Y/N)");
         inputu = k.nextLine();
-        if(inputu.equals("Y")) localline51090 = 2230;
+        if (inputu.equals("Y")) {
+            localline51090 = 2230;
+        }
         line51090 = localline51090;
         amount = amount + localline51090 - partner_netincome;
-        if(amount<0) return 0.00;
+        if (amount < 0) {
+            return 0.00;
+        }
         return amount;
     }
+
+    public double line30499() {
+        System.out.println("Canada caregiver amount for infirm children under 18 years of age\n"
+                + "Enter the number of children for whom you are claiming this amount:");
+        double input;
+        input = k.nextInt();
+        return input;
+    }
+
+    public double line30500(lines arr[]) {
+        double n = arr[getLineIndex("30499", arr)].value;//money at 30499
+        return n * 2230;
+    }
+
+    public double line33099() {
+        System.out.println("What is Medical expenses for self, spouse or common-law partner, and your dependent children born in 2002 or later");
+        double value;
+        value = k.nextInt();
+        return value;
+    }
+    
+    public double line31200(){
+        double maxEI = 860.22;
+        double EI = 0;
+        if(self_employed == false){
+            System.out.println("Please enter the amount in from box 18 and box 55 of all T4 slips: ");
+            EI = k.nextDouble();
+            if(EI > maxEI) EI = maxEI;
+        }    
+        return EI;
+    }
+    
+    public double line31220(lines arr[]){
+        String in;
+        System.out.print("You completed at least 200 hours of eligible volunteer firefighting services or eligible search and rescue volunteer services in the year(y/n)? ");
+        in = k.next();
+        if(in == "y"){
+            while(true){
+                System.out.print("Would you like to clim volunteer Firefighter(f) or search and rescue(s)? ");
+                in = k.next();
+                if (in == "f") {
+                    arr[getLineIndex("31240", arr)].value = line31240(0);
+                    return 3000;
+                } else if (in == "s") {
+                    arr[getLineIndex("31240", arr)].value = line31240(3000);
+                    return 0;
+                } else {
+                    System.out.println("Please input s or f");
+                }
+            }
+        }else{
+            arr[getLineIndex("31240",arr)].value = line31240(0);
+            return 0;
+        }
+        
+    }
+     
+    public double line31240(double a){
+        return a;
+    }
+    
+    public double line31260(lines arr[]){        
+        double amount = 1222;
+        double income = arr[getLineIndex("10100",arr)].value + arr[getLineIndex("10400",arr)].value;
+        if(income >= amount) return amount;
+        else return income;
+    }
+    
+    public double line31270(){
+          Scanner k = new Scanner(System.in);
+          String in;
+          while(true){
+            System.out.print("Did you or your spouse or common-law partner acquired a home and you did not live in another home owned by you or your spouse or common-law partner in the year of acquisition or in any of the four preceding years(y/n? ");
+            in = k.next();
+            if(in == "Y"){
+                return 5000;
+            }else if(in == "n"){
+                return 0;
+            }else System.out.println("Please enter y or n");
+          }
+    }
+    
+    public double line31900(){
+        Scanner k = new Scanner(System.in);
+        String in;
+        double amount;
+        while(true){
+            System.out.println("If you received a loan under the Canada Student Loans Act, the Canada Student Financial Assistance Act, the Apprentice Loans Act, or similar provincial or territorial government laws for post-secondary education");
+            System.out.print("And you would like to claim the intrest agencied the taxs you owe for the 2019 TAX year(y/n)");
+            in = k.next();
+            if(in == "y"){
+                System.out.print("Please enter the amount you would like to claim. Due note you can claim any prevously unclaimed interest on your student loan from the past 5 years: ");
+                amount = k.nextDouble();
+                return amount;
+            }else if(in == "n") return 0;
+            else System.out.println("Please enter y or n");
+        }
+    }
+    
+    public double line31300(){
+         Scanner k = new Scanner(System.in);
+          String in;
+          double expences;
+          double amount = 16255;
+          while(true){
+            System.out.print("Did you adopt a child in 2019(y/n)? ");
+            in = k.next();
+            if (in == "y") {
+                System.out.println("eligable adoption expenses ");
+                System.out.println("fees paid to an adoption agency licensed by a provincial or territorial government");
+                System.out.println("court costs and legal and administrative expenses related to an adoption order for the child");
+                System.out.println("reasonable and necessary travel and living expenses of the child and the adoptive parents");
+                System.out.println("document translation fees");
+                System.out.println("mandatory fees paid to a foreign institution");
+                System.out.println("any other reasonable expenses related to the adoption required by a provincial or territorial government or an adoption agency licensed by a provincial or territorial government");
+                System.out.print("please input the amount of adoption expenses incurred in 2019 ");
+                expences = k.nextDouble();
+                if(expences >= amount) return amount;
+                else return expences;
+            } else if (in == "n") {
+                return 0;
+            } else {
+                System.out.println("Please enter y or n");
+            }
+        }
+    }
+    
+    public double line33200(lines arr[]) {
+        double n = 0.03 * arr[getLineIndex("23600", arr)].value;//money at 23600 * 0.03
+        double L26 = 0;
+        double L27;
+        if (n > 2352) {
+            L26 = n;
+        } else {
+            L26 = 2352.0;
+        }
+
+        double L25 = arr[getLineIndex("33099", arr)].value;//money at 33099
+        L27 = L25 - L26;
+        if (L27 < 0) {
+            L27 = 0;
+        }
+
+        return L27 + arr[getLineIndex("31099", arr)].value;
+    }
+
+    public double line33500(lines arr[]) {
+        return sum1to24_for30000s + arr[getLineIndex("32000", arr)].value;
+    }
+
+    public double line33800(lines arr[]) {
+        return arr[getLineIndex("33500", arr)].value * 1.15;
+    }
+
+    public double line35000(lines arr[]) {
+        return arr[getLineIndex("33800", arr)].value + arr[getLineIndex("34900", arr)].value;
+    }
+
+
 }
