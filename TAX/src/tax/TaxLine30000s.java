@@ -108,7 +108,7 @@ public class TaxLine30000s {
     }
     
     public double line35000(){
-        return arr[getLineIndex("33800", arr)] + arr[getLineIndex("34900", arr)]
+        return arr[getLineIndex("33800", arr)] + arr[getLineIndex("34900", arr)];
     }
     
     public static void main(String[] args) {
