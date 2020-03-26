@@ -2,6 +2,7 @@
 package tax;
 import java.util.*;
 import java.io.*;
+import tax.TacoSauce.*;
 
  class lines {
        public String line;
@@ -27,9 +28,6 @@ import java.io.*;
 
 
 public class TAX {
-    
-    
-    
     
     
     
