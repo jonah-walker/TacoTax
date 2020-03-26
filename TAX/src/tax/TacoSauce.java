@@ -138,6 +138,14 @@ public class TacoSauce {
         }
    }
    
+    public boolean YorN (){
+        String ur;
+        System.out.println("Please enter (Y/N) for your response: ");
+        ur = k.nextLine();
+        if (ur.equals("Y")) return true;
+        return false;
+    }
+   
    public double line10100(){//Employment income
         double income = 0.00;
         System.out.print("please enter employment income(box 14 of all t4 slips): ");
