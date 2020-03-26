@@ -61,7 +61,7 @@ public class TAX {
        file.close();
        TacoSauce ts = new TacoSauce();
        ts.personal_info(); // first page
-       arr[getLineIndex("10100",arr)].value = ts.line10100();
+      // arr[getLineIndex("10100",arr)].value = ts.line10100();
        //second page
             //someone please do this
         
