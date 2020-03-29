@@ -2,7 +2,7 @@
 package tax;
 
 public class tempclassforThomas {
-    double gross_business_income=0, net_business_income, gross_professional_income, net_professional_income,gross_commission_income,net_commission_income; //self-employment income
+    double gross_business_income, net_business_income, gross_professional_income, net_professional_income,gross_commission_income,net_commission_income; //self-employment income
     double gross_farming_income, net_farming_income, gross_fishing_income, net_fishing_income;    //self-employment income
     double workers_compensation_benefits, social_assistance,net_federal_supplements ;
     public double line13499(){
