@@ -14,6 +14,7 @@ public class TacoSauce2 {
                 return i;
             }
         }
+        System.out.println("Error: "+line+" was not found.");
         return -1;
     } //get the index of a line insude the line array
     
@@ -51,6 +52,24 @@ public class TacoSauce2 {
     double Elected_splitpension_amount;
     double UCCB;
     double UCCB_To_Dependent;
+    double EI_and_other_Benefits;
+    double EI_maternity_and_parental_benefits;
+    double All_Taxable_Divident_Canadian_Corportations;
+    double Other_Than_Eligible_Taxable_Divident_Canadian_Corportations;
+    double Interest_and_other_investment_income;
+    double Net_partnership_income;
+    double Registered_disability_savings_plan_income;
+    double Gross_Rental_Income;
+    double Net_Rental_Income;
+    double Taxable_Capital_Gains;
+    double Total_Support_Payment_Received;
+    double Taxable_Support_Payment_Received;
+    double RRSP_Income;
+    double Other_Income;
+    double Other_Taxables;
+    double gross_business_income=0, net_business_income, gross_professional_income, net_professional_income,gross_commission_income,net_commission_income; //self-employment income
+    double gross_farming_income, net_farming_income, gross_fishing_income, net_fishing_income;    //self-employment income
+    double workers_compensation_benefits, social_assistance,net_federal_supplements ;
  
    //User Input Functions
    public void personal_info(){ //first page of infomation   
@@ -249,20 +268,145 @@ public class TacoSauce2 {
        return UCCB_To_Dependent;
    }
    
-   public double line11900()
+   public double line11900()//Employment insurance and other benefits
+   {
+       return EI_and_other_Benefits;
+   }
    
+   public double line11905()//EI_maternity and parental benefits
+   {
+       return EI_maternity_and_parental_benefits;
+   }
    
+   public double line12000() //Taxable amount of dividends from taxable Canadian corporations
+   {
+       return All_Taxable_Divident_Canadian_Corportations;
+   }
    
+   public double line12010() //Taxable amount of dividends other than eligible dividends from taxable Canadian corporations
+   {
+        return Other_Than_Eligible_Taxable_Divident_Canadian_Corportations;
+   }
    
+   public double line12100() //Interest and other investment income
+   {
+       return Interest_and_other_investment_income;
+   }
    
+   public double line12200() //Net partnership income: limited or non-active partners only
+   {
+       return Net_partnership_income;
+   }
    
+   public double line12500() //Registered disability savings plan income
+   {
+       return Registered_disability_savings_plan_income;
+   }
    
+   public double line12599() //Gross Rental income
+   {
+       return Gross_Rental_Income;
+   }
    
+   public double line12600() //Net Rental income
+   {
+       return Net_Rental_Income;
+   }
    
+   public double line12700() //Taxable capital gains
+   {
+       return Taxable_Capital_Gains;
+   }
    
+   public double line12799() //Total Support payments received
+   {
+       return Total_Support_Payment_Received;
+   }
    
+   public double line12800() //Taxable Support payments received
+   {
+       return Taxable_Support_Payment_Received;
+   }
    
+   public double line12900() //RRSP income
+   {
+       return RRSP_Income;
+   }
    
+   public double line13000() //Other income
+   {
+       return Other_Income;
+   }
+   
+   public double line13010() //Taxable scholarship, fellowships, bursaries, and artists' project grants
+   {
+       return Other_Taxables;
+   }
+   
+   public double line13499(){
+        return gross_business_income;
+    }
+   
+    public double line13500(){
+        return net_business_income;
+    }
+    
+    public double line13699(){
+        return gross_professional_income;
+    }
+    
+    public double line13700(){
+        return net_professional_income;
+    }
+    
+    public double line13899(){
+        return gross_commission_income;
+    }
+    
+    public double line13900(){
+        return net_commission_income;
+    }
+    
+    public double line14099(){
+        return gross_farming_income;
+    }
+    
+    public double line14100(){
+        return net_farming_income;
+    }
+    
+    public double line14299(){
+        return gross_fishing_income;
+    }
+    
+    public double line14300(){
+        return net_fishing_income;
+    }
+    
+    public double line14400(){
+        return workers_compensation_benefits;          
+    }
+    
+    public double line14500(){
+        return social_assistance; 
+    }
+    
+    public double line14600(){
+       return net_federal_supplements;
+    }
+    
+    public double line14700(lines arr[]){     
+        return arr[getLineIndex("14400", arr)].value + arr[getLineIndex("14500", arr)].value + arr[getLineIndex("14600", arr)].value;
+    }
+    
+    public double line15000(lines arr[]){
+        double sum = arr[getLineIndex("10100", arr)].value + arr[getLineIndex("10400", arr)].value + arr[getLineIndex("11300", arr)].value + arr[getLineIndex("11400", arr)].value;
+        sum += arr[getLineIndex("11500", arr)].value + arr[getLineIndex("11600", arr)].value + arr[getLineIndex("11700", arr)].value + arr[getLineIndex("11900", arr)].value + arr[getLineIndex("12000", arr)].value;
+        sum += arr[getLineIndex("12100", arr)].value + arr[getLineIndex("12200", arr)].value + arr[getLineIndex("12500", arr)].value + arr[getLineIndex("12600", arr)].value + arr[getLineIndex("12700", arr)].value;
+        sum += arr[getLineIndex("12800", arr)].value + arr[getLineIndex("12900", arr)].value + arr[getLineIndex("13000", arr)].value + arr[getLineIndex("13010", arr)].value + arr[getLineIndex("13500", arr)].value;
+        sum += arr[getLineIndex("13700", arr)].value + arr[getLineIndex("13900", arr)].value + arr[getLineIndex("14100", arr)].value + arr[getLineIndex("14300", arr)].value + arr[getLineIndex("14700", arr)].value;
+        return sum;
+    }
    
    
    
