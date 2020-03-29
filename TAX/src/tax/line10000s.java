@@ -102,4 +102,15 @@ public class line10000s {
         amount += a2;
         return amount;
     }
+    
+    public double line12700(){
+         System.out.println("Do you have a capitcal gain or loss in 2019?");
+        if(YorN() == false) return 0.0;
+        System.out.println("please complete schedule 3 in the following link");
+        System.out.println("https://www.canada.ca/content/dam/cra-arc/formspubs/pbg/t1032/t1032-fill-19e.pdf");
+        double income = 0.00;
+        System.out.println("If you have a Taxable capital gain (positive number on line 19900 at schedule 3), input that number. Otherwise please input 0.");
+        income =  k.nextDouble();
+        return income;
+    }
 }
