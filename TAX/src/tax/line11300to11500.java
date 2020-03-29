@@ -19,6 +19,8 @@ public class line11300to11500 {
         }
         return amount;
     }
+    
+    
     public double line11400(){
         String in;
         double amount = 0.00;
@@ -35,6 +37,8 @@ public class line11300to11500 {
         return amount;
     
     }
+    
+    
     public double line11410(){
         String in;
         double amount = 0.00;
@@ -50,6 +54,8 @@ public class line11300to11500 {
         }
         return amount;
     }
+    
+    
    public double line11500(){
         String in;
         double amount = 0.00;
