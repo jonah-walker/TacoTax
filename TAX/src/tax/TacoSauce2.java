@@ -44,7 +44,13 @@ public class TacoSauce2 {
     double Commision; //done
     double Wage_Loss_Replacement_Contributions;
     double Other_Employment_Income; //done
-   
+    double Old_Age_Security_Pension;
+    double CPP_or_QPP_Benefits;
+    double Disability_Benefits;
+    double Other_pensions_and_superannuation;
+    double Elected_splitpension_amount;
+    double UCCB;
+    double UCCB_To_Dependent;
  
    //User Input Functions
    public void personal_info(){ //first page of infomation   
@@ -183,25 +189,85 @@ public class TacoSauce2 {
     double sum1to24_for30000s;
    
    //Line Computation Functions
-   public double line10100(){//Employment income
+   public double line10100()//Employment income
+   { 
         return Employment_Income;
     }   
    
-   public double line10105(){//Tax_exempt_income_emergency_volunteers
+   public double line10105()//Tax_exempt_income_emergency_volunteers
+   {
         return Tax_exempt_income_emergency_volunteers;
     }
    
-   public double line10120(){//Commision
+   public double line10120()//Commision
+   {
         return Commision;
     }
    
-   public double line10130(){//Wage-loss replacement contributions
+   public double line10130()//Wage-loss replacement contributions
+   {
         return Wage_Loss_Replacement_Contributions;
    }
    
-   public double line10400(){//Other employment income
+   public double line10400()//Other employment income
+   {
         return Other_Employment_Income;
     }
+   
+   public double line11300()//Old age security pension
+   {
+       return Old_Age_Security_Pension;
+   }
+   
+   public double line11400()//CPP or QPP benefits
+   {
+       return CPP_or_QPP_Benefits;
+   }
+   
+   public double line11410()//Disability benefits
+   {
+       return Disability_Benefits;
+   }
+   
+   public double line11500()//Other pensions and superannuation
+   {
+       return Other_pensions_and_superannuation;
+   }
+   
+   public double line11600()//Elected split-pension amount
+   {
+       return Elected_splitpension_amount;
+   }
+   
+   public double line11700()//UCCB
+   {
+       return UCCB;
+   }
+   
+   public double line11701()//UCCB amount designated to a dependant
+   {
+       return UCCB_To_Dependent;
+   }
+   
+   public double line11900()
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
    
    
    
