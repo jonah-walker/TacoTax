@@ -7,6 +7,7 @@ import tax.lines;
 
 public class TacoSauce2 {
     
+    //General Utility Functions: these functions can be called in other methods for utility functions
     public int getLineIndex(String line, lines[] arr){//get the index of the line given the line number
         for(int i = 0; i < arr.length; i++){
             if(line.equals(arr[i].getLine())){
@@ -14,10 +15,22 @@ public class TacoSauce2 {
             }
         }
         return -1;
-    }
+    } //get the index of a line insude the line array
     
+    public boolean YorN (){
+        String ur;
+        System.out.println("Please enter (Y/N) for your response: ");
+        ur = k.nextLine();
+        if (ur.equals("Y")) return true;
+        return false;
+    } //ask user yes or no question and return a boolean value
+    
+    
+    //Globle Variables
+    //General variables
     Scanner k = new Scanner(System.in);
-    double line51090;
+    
+    //Basic Personal Info Variables
     String first_name, initial,last_name,street_name,po_box,city,Pro_tarr,postal_code,email;
     String prov_terr_endyear,prov_terr_current,prov_terr_business,partner_first_name;
     int sin,birth_year,birth_month,birth_day,deceased_year,deceased_month,deceased_day,marital_status,apt_num = 0,rr ,street_num;
@@ -25,12 +38,13 @@ public class TacoSauce2 {
     boolean langE;//true means language is english
     boolean decased = false,self_employed = false,partner_self_employed = false, candian_res = true,partner;
    
-//var that will need to be filled later below
-    
+    //variables acquired from users that will need to be filled later
+    double Employment_Income;
+    double Tax_exempt_income_emergency_volunteers;
+    double Commision;
    
-    
-    
-    
+ 
+   //User Input Functions
    public void personal_info(){ //first page of infomation   
         Scanner k = new Scanner(System.in);
         System.out.print("Please enter your First name: ");
@@ -138,26 +152,45 @@ public class TacoSauce2 {
                 depart_day = k.nextInt();               
             }
         }
+   }//ask for basic personal information
+   
+   public void F_Employment_Income(){//ask for employment income
+        System.out.print("please enter employment income(box 14 of all t4 slips): ");
+        Employment_Income =  k.nextDouble();
    }
    
-    public boolean YorN (){
-        String ur;
-        System.out.println("Please enter (Y/N) for your response: ");
-        ur = k.nextLine();
-        if (ur.equals("Y")) return true;
-        return false;
+   public void F_Tax_exempt_income_emergency_volunteers(){//ask for Tax_exempt_income_emergency_volunteers
+        System.out.println("please enter your exempt income for emergency volunteer services(box 87 of all t4 slips): ");
+        Tax_exempt_income_emergency_volunteers =  k.nextDouble();
     }
    
+   public void F_Commision(){//asks Commision from the user
+        System.out.println("please enter your commision recieved as an employee(box 42 of all T4 slips): ");
+        Commision =  k.nextDouble();
+   }
+   
+   
+   
+   //Variables needed for Line Computation Functions
+    double line51090;
+    double sum1to24_for30000s;
+   
+   //Line Computation Functions
    public double line10100(){//Employment income
-        double income = 0.00;
-        System.out.print("please enter employment income(box 14 of all t4 slips): ");
-        income =  k.nextDouble();
-        return income;
+        return Employment_Income;
     }   
    
-   //30000
-    double sum1to24_for30000s;
-
+   public double line10105(){//
+        return Tax_exempt_income_emergency_volunteers;
+    }
+   
+   public double line10120(){//
+        return Commision;
+    }
+   
+   
+   
+   //Functions that still needs to be modified for rhe new version:
     public double line30000() {//Employment income
         return 12069;
     }
