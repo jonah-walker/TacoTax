@@ -39,9 +39,11 @@ public class TacoSauce2 {
     boolean decased = false,self_employed = false,partner_self_employed = false, candian_res = true,partner;
    
     //variables acquired from users that will need to be filled later
-    double Employment_Income;
-    double Tax_exempt_income_emergency_volunteers;
-    double Commision;
+    double Employment_Income; //done
+    double Tax_exempt_income_emergency_volunteers; //done
+    double Commision; //done
+    double Wage_Loss_Replacement_Contributions;
+    double Other_Employment_Income; //done
    
  
    //User Input Functions
@@ -169,6 +171,11 @@ public class TacoSauce2 {
         Commision =  k.nextDouble();
    }
    
+   public void F_Other_Employment_Income(){
+        System.out.println("please enter the employment income not reported on a T4 slip: ");
+        Other_Employment_Income =  k.nextDouble();
+   }
+   
    
    
    //Variables needed for Line Computation Functions
@@ -180,13 +187,28 @@ public class TacoSauce2 {
         return Employment_Income;
     }   
    
-   public double line10105(){//
+   public double line10105(){//Tax_exempt_income_emergency_volunteers
         return Tax_exempt_income_emergency_volunteers;
     }
    
-   public double line10120(){//
+   public double line10120(){//Commision
         return Commision;
     }
+   
+   public double line10130(){//Wage-loss replacement contributions
+        return Wage_Loss_Replacement_Contributions;
+   }
+   
+   public double line10400(){//Other employment income
+        return Other_Employment_Income;
+    }
+   
+   
+   
+   
+   
+   
+   
    
    
    
