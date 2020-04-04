@@ -44,12 +44,12 @@ public class TacoSauce2 {
     double Employment_Income; //done
     double Tax_exempt_income_emergency_volunteers; //done
     double Commision; //done
-    double Wage_Loss_Replacement_Contributions;
+    double Wage_Loss_Replacement_Contributions;//done
     double Other_Employment_Income; //done
-    double Old_Age_Security_Pension;
-    double CPP_or_QPP_Benefits;
-    double Disability_Benefits;
-    double Other_pensions_and_superannuation;
+    double Old_Age_Security_Pension; //done
+    double CPP_or_QPP_Benefits; //done
+    double Disability_Benefits;  //done
+    double Other_pensions_and_superannuation; //done
     double Elected_splitpension_amount;
     double UCCB;
     double UCCB_To_Dependent;
@@ -203,11 +203,43 @@ public class TacoSauce2 {
         Commision =  k.nextDouble();
    }
    
+   public void F_Wage_Loss_Replacement_Contributions(){
+        System.out.println("Please report your total contributions to your wage-loss replacement plan shown in the supporting documents from your employer or insurance company.: ");
+        Wage_Loss_Replacement_Contributions =  k.nextDouble();
+   }
+   
    public void F_Other_Employment_Income(){
         System.out.println("please enter the employment income not reported on a T4 slip: ");
         Other_Employment_Income =  k.nextDouble();
    }
    
+   public void F_Old_Age_Security_Pension(){
+        System.out.print("Please enter your Old age security pension amount (box 18 of the T4A(OAS) slip): ");
+        Old_Age_Security_Pension = k.nextDouble();;
+   }
+   
+   public  void F_CPP_or_QPP_Benefits(){
+       System.out.print("Please enter the ammount of CPP or QPP benefits you received (box 20 of the T4A(P) slip): ");
+       CPP_or_QPP_Benefits = k.nextDouble();
+   }
+   
+   public void F_Disability_Benefits(){
+        double amount = 0.00;
+        System.out.print("Please enter the ammount of Disability benefits included on line 11400 (box 16 of the T4A(P) slip): ");
+        amount = k.nextDouble();
+        Disability_Benefits = amount;
+   }
+   
+   public void F_Other_pensions_and_superannuation(){
+        double amount = 0.00;
+        System.out.print("If you received any Other pensions and superannuation payments in 2019 tax year, please enter the ammount shown in box 016 of your T4A slips and box 31 of your T3 slips: ");
+        amount = k.nextDouble();
+        Other_pensions_and_superannuation = amount;
+   }
+   
+   public void F_Elected_splitpension_amount(){
+       
+   }
    
    
    //Variables needed for Line Computation Functions
