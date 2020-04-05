@@ -59,15 +59,16 @@ public class TacoSauce2 {
     double Other_Than_Eligible_Taxable_Divident_Canadian_Corportations;//done
     double Interest_and_other_investment_income;//done
     double Net_partnership_income;//done
-    double Registered_disability_savings_plan_income;
-    double Gross_Rental_Income;
-    double Net_Rental_Income;
-    double Taxable_Capital_Gains;
-    double Total_Support_Payment_Received;
-    double Taxable_Support_Payment_Received;
-    double RRSP_Income;
-    double Other_Income;
-    double Other_Taxables;
+    double Registered_disability_savings_plan_income;//done
+    double Gross_Rental_Income;//done
+    double Net_Rental_Income;//done
+    double Taxable_Capital_Gains;//done
+    double Total_Support_Payment_Received;//done
+    double Taxable_Support_Payment_Received;//done
+    double RRSP_Income;//done
+    double Other_Income;//done
+    String Other_Income_Specify;//done
+    double Other_Taxables;//done
     double gross_business_income=0, net_business_income, gross_professional_income, net_professional_income,gross_commission_income,net_commission_income; //self-employment income
     double gross_farming_income, net_farming_income, gross_fishing_income, net_fishing_income;    //self-employment income
     double workers_compensation_benefits, social_assistance,net_federal_supplements ;
@@ -282,7 +283,7 @@ public class TacoSauce2 {
    }
    
    public void F_Interest_and_other_investment_income(){
-       System.out.println("Please enter line 11 on the T1-2019 worksheet");
+       System.out.println("Please enter line 11 on the T1-2019 worksheet: ");
        Interest_and_other_investment_income = k.nextDouble();
    }
    
@@ -292,9 +293,134 @@ public class TacoSauce2 {
    }
    
    public void F_Registered_disability_savings_plan_income(){
-       
+       System.out.print("Please enter Registered disability savings plan income (box 131 of the T4A slip): ");
+       Registered_disability_savings_plan_income = k.nextDouble();       
    }
- 
+   
+   public void F_Gross_Rental_Income(){
+       System.out.print("Please enter your gross rental income: ");
+       Gross_Rental_Income = k.nextDouble();  
+   }
+   
+   public void F_Net_Rental_Income(){
+       System.out.print("Please enter your net rental income: ");
+       Net_Rental_Income = k.nextDouble();  
+   }
+
+   public void F_Taxable_Capital_Gains(){
+       System.out.println("If you have a Taxable capital gain (positive number on line 19900 in schedule 3), input that number. Otherwise please input 0.");
+       Taxable_Capital_Gains = k.nextDouble();
+   }
+   
+   public void F_Total_Support_Payment_Received (){
+       System.out.println("Please input the total support payment recieved.");
+       System.out.println("For more information, please visit: https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/personal-income/lines-12799-12800-support-payments-received.html");
+       System.out.println("Total support payment recieved: ");
+       Total_Support_Payment_Received = k.nextDouble();
+   }
+   
+   public void F_Taxable_Support_Payment_Received(){
+       System.out.println("Please input the taxable support payment recieved.");
+       System.out.println("For more information, please visit: https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/personal-income/lines-12799-12800-support-payments-received.html");
+       System.out.println("Taxable support payment recieved: ");
+       Taxable_Support_Payment_Received = k.nextDouble();
+   }
+   
+   public void F_RRSP_Income(){
+       System.out.println("For your RRSP income, enter the total of amounts shown in boxes 16, 18, 28, and 34 of your T4RSP slips.");
+       System.out.println("Also include the amounts from boxes 20, 22, and 26, unless your spouse or common-law partner made a contribution to your RRSP in 2016, 2017, or 2018.");
+       System.out.println("If this is the case, see https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/rrsps-related-plans/making-withdrawals/withdrawing-spousal-common-law-partner-rrsps.html");
+       System.out.print("Enter the amount here: ");
+       RRSP_Income = k.nextDouble();
+   }
+   
+   public void F_Other_Income(){
+       System.out.println("Please input other income not reported elsewhere here.");
+       System.out.println("For more information, please visit: https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/personal-income/line-13000-other-income.html");
+       System.out.print("Enter the amount here: ");
+       Other_Income = k.nextDouble();
+       System.out.print("Please Specify the income: ");
+       Other_Income_Specify = k.nextLine();
+   }
+   
+   public void F_Other_Taxables(){
+       System.out.println("Please input Taxable scholarship, fellowships, bursaries, and artists' project grants.");
+       System.out.print("Enter the amount here: ");
+       Other_Taxables = k.nextDouble();
+   }
+   
+   public void F_gross_business_income(){
+       System.out.println("For your self-employment, what is your gross business income?");
+       System.out.println("For more information about self-employment income, please refer: https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/personal-income/self-employment-income-lines-13499-14299-gross-income-lines-13500-14300-net-income.html");
+       System.out.print("Enter the amount here: ");
+       gross_business_income = k.nextDouble();
+   }
+   
+   public void F_net_business_income(){
+       System.out.println("For your self-employment, what is your net business income?");
+       System.out.println("For more information about self-employment income, please refer: https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/personal-income/self-employment-income-lines-13499-14299-gross-income-lines-13500-14300-net-income.html");
+       System.out.print("Enter the amount here: ");
+       net_business_income = k.nextDouble();
+   }
+   
+   public void F_gross_professional_income(){
+       System.out.println("For your self-employment, what is your gross professional income?");
+       System.out.println("For more information about self-employment income, please refer: https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/personal-income/self-employment-income-lines-13499-14299-gross-income-lines-13500-14300-net-income.html");
+       System.out.print("Enter the amount here: ");
+       gross_professional_income = k.nextDouble();
+   }
+   
+   public void F_net_professional_income(){
+       System.out.println("For your self-employment, what is your net professional income?");
+       System.out.println("For more information about self-employment income, please refer: https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/personal-income/self-employment-income-lines-13499-14299-gross-income-lines-13500-14300-net-income.html");
+       System.out.print("Enter the amount here: ");
+       net_professional_income = k.nextDouble();
+   }
+   
+   public void F_gross_commission_income(){
+       System.out.println("For your self-employment, what is your gross commission income?");
+       System.out.println("For more information about self-employment income, please refer: https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/personal-income/self-employment-income-lines-13499-14299-gross-income-lines-13500-14300-net-income.html");
+       System.out.print("Enter the amount here: ");
+       gross_commission_income = k.nextDouble();
+   }
+   
+   public void F_net_commission_income(){
+       System.out.println("For your self-employment, what is your net commission income?");
+       System.out.println("For more information about self-employment income, please refer: https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/personal-income/self-employment-income-lines-13499-14299-gross-income-lines-13500-14300-net-income.html");
+       System.out.print("Enter the amount here: ");
+       net_commission_income = k.nextDouble();
+   }
+   
+   public void F_gross_farming_income(){
+       System.out.println("For your self-employment, what is your gross farming income?");
+       System.out.println("For more information about self-employment income, please refer: https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/personal-income/self-employment-income-lines-13499-14299-gross-income-lines-13500-14300-net-income.html");
+       System.out.print("Enter the amount here: ");
+       gross_farming_income = k.nextDouble();
+   }
+   
+   public void F_net_farming_income(){
+       System.out.println("For your self-employment, what is your net farming income?");
+       System.out.println("For more information about self-employment income, please refer: https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/personal-income/self-employment-income-lines-13499-14299-gross-income-lines-13500-14300-net-income.html");
+       System.out.print("Enter the amount here: ");
+       net_farming_income = k.nextDouble();
+   }
+   
+   public void F_gross_fishing_income(){
+       System.out.println("For your self-employment, what is your gross fishing income?");
+       System.out.println("For more information about self-employment income, please refer: https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/personal-income/self-employment-income-lines-13499-14299-gross-income-lines-13500-14300-net-income.html");
+       System.out.print("Enter the amount here: ");
+       gross_fishing_income = k.nextDouble();
+   }
+   
+   public void F_net_fishing_income(){
+       System.out.println("For your self-employment, what is your net fishing income?");
+       System.out.println("For more information about self-employment income, please refer: https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/personal-income/self-employment-income-lines-13499-14299-gross-income-lines-13500-14300-net-income.html");
+       System.out.print("Enter the amount here: ");
+       net_fishing_income = k.nextDouble();
+   }
+   
+   
+   
    //Variables needed for Line Computation Functions
     double sum1to24_for30000s;
    
