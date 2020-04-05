@@ -50,15 +50,15 @@ public class TacoSauce2 {
     double CPP_or_QPP_Benefits; //done
     double Disability_Benefits;  //done
     double Other_pensions_and_superannuation; //done
-    double Elected_splitpension_amount;
-    double UCCB;
-    double UCCB_To_Dependent;
-    double EI_and_other_Benefits;
-    double EI_maternity_and_parental_benefits;
-    double All_Taxable_Divident_Canadian_Corportations;
-    double Other_Than_Eligible_Taxable_Divident_Canadian_Corportations;
-    double Interest_and_other_investment_income;
-    double Net_partnership_income;
+    double Elected_splitpension_amount; //done
+    double UCCB;//done,but needs special attention for this one. Look up line 17000 when organizing.
+    double UCCB_To_Dependent;//done,but needs special attention for this one. Look up line 17001 when organizing.
+    double EI_and_other_Benefits;//done
+    double EI_maternity_and_parental_benefits;//done
+    double All_Taxable_Divident_Canadian_Corportations;//done
+    double Other_Than_Eligible_Taxable_Divident_Canadian_Corportations;//done
+    double Interest_and_other_investment_income;//done
+    double Net_partnership_income;//done
     double Registered_disability_savings_plan_income;
     double Gross_Rental_Income;
     double Net_Rental_Income;
@@ -238,12 +238,64 @@ public class TacoSauce2 {
    }
    
    public void F_Elected_splitpension_amount(){
-       
+       System.out.println("Please enter the elected split-pension amount. You will have to complete form T1032 if you have not done so, which could be found in the link below: ");
+       System.out.println("https://www.canada.ca/content/dam/cra-arc/formspubs/pbg/t1032/t1032-fill-19e.pdf");
+       System.out.println("please enter the amount in line G of the T1032 form: ");
+       Elected_splitpension_amount = k.nextDouble();
    }
    
+   public void F_UCCB(){
+       System.out.println("For Universal Child Care Benefit, please enter box 10 of the RC62 slip: ");
+       UCCB = k.nextDouble();
+   }
    
+   public void F_UCCB_To_Dependent(){
+       UCCB_To_Dependent = 0.0;
+   }
+   
+   public void F_EI_and_other_Benefits(){
+       System.out.println("please enter the amount for Employment Insurance and other benefits. This could be found on box 14 of the T4E slip");
+       EI_and_other_Benefits = k.nextDouble();
+   }
+   
+   public void F_EI_maternity_and_parental_benefits(){
+        double amount;
+        double a2;
+        System.out.println("Report the amount of the employment insurance maternity and parental benefits you received in 2019.");
+        System.out.println("This amount can be found on the letter you received from Employment and Social Development Canada (ESDC).");
+        System.out.println("If such situation do not apply to you, please input '0' :");
+        amount = k.nextDouble();
+        System.out.println("Please input the amount of provincial parental insurance plan (PPIP) maternity and parental benefits (box 36 of your T4E slip)");
+        a2 = k.nextDouble();
+        amount += a2;
+       EI_maternity_and_parental_benefits = amount;
+   }
+   
+   public void F_All_Taxable_Divident_Canadian_Corportations(){
+       System.out.println("Please enter line 7 on the T1-2019 worksheet");
+       All_Taxable_Divident_Canadian_Corportations = k.nextDouble();
+   }
+          
+   public void F_Other_Than_Eligible_Taxable_Divident_Canadian_Corportations(){
+       System.out.println("Please enter line 3 on the T1-2019 worksheet");
+       Other_Than_Eligible_Taxable_Divident_Canadian_Corportations = k.nextDouble();
+   }
+   
+   public void F_Interest_and_other_investment_income(){
+       System.out.println("Please enter line 11 on the T1-2019 worksheet");
+       Interest_and_other_investment_income = k.nextDouble();
+   }
+   
+   public void F_Net_partnership_income(){
+       System.out.print("Please enter net partnership income or loss: ");
+       Net_partnership_income = k.nextDouble();               
+   }
+   
+   public void F_Registered_disability_savings_plan_income(){
+       
+   }
+ 
    //Variables needed for Line Computation Functions
-    double line51090;
     double sum1to24_for30000s;
    
    //Line Computation Functions

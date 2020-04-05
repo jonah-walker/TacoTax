@@ -95,7 +95,7 @@ public class line10000s {
         double a2;
         System.out.println("Report the amount of the employment insurance maternity and parental benefits you received in 2019.");
         System.out.println("This amount can be found on the letter you received from Employment and Social Development Canada (ESDC).");
-        System.out.println("If such situation do not apply to you, please input 0 :");
+        System.out.println("If such situation do not apply to you, please input '0' :");
         amount = k.nextDouble();
         System.out.println("Please input the amount of provincial parental insurance plan (PPIP) maternity and parental benefits (box 36 of your T4E slip)");
         a2 = k.nextDouble();
