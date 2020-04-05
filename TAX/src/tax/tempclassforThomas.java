@@ -70,4 +70,66 @@ public class tempclassforThomas {
         else return amount;
     }
     
+    
+    //new lines after 30000
+    double eligible_dependant_amount, canada_caregiver_amount_partner_dependant, canada_caregiver_amount_infirm_dependant;
+    double cpp_employment_income,cpp_self_employment_income, home_accessibility_expenses, pension_income_amount;
+    double disability_amount_self, disability_amount_dependant, tuition_education_amount, tuition_amount_child;
+    double amounts_transferred_partner, medical_expenses_other_dependants, donations_gifts;
+    
+    double line30400(){
+        return eligible_dependant_amount;
+    }
+    
+    double line30425(){
+        return canada_caregiver_amount_partner_dependant;
+    }
+    
+   double line30450(){
+       return canada_caregiver_amount_infirm_dependant;
+   }
+    
+  double line30800(){
+      return cpp_employment_income;
+  }
+  
+  double line31000(){
+      return cpp_self_employment_income;
+  }
+  
+  double line31285(){
+      return home_accessibility_expenses;
+  }
+  
+  double line31400(){
+      return pension_income_amount;
+  }
+  
+  double line31600(){
+      return disability_amount_self;
+  }
+  
+  double line31800(){
+      return disability_amount_dependant;
+  }
+  
+  double line32300(){
+      return tuition_education_amount;
+  }
+  
+  double line32400(){
+      return tuition_amount_child;
+  }
+  
+  double line32600(){
+      return amounts_transferred_partner;
+  }
+  double line33199(){
+      return medical_expenses_other_dependants;
+  }
+  
+  double line34900(){
+      return donations_gifts;
+  }
+  
 }
