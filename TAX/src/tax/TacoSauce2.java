@@ -77,7 +77,15 @@ public class TacoSauce2 {
     double gross_business_investment_loss, allowable_deduction_business_investment_loss, total_support_payments, allowable_deduction_support_payments;
     double carrying_charges_and_interest_expenses, deduction_CPP_or_QPP_contributions_self_employment, deduction_for_CPP_or_QPP_enhanced_contributions_employment_income;
     double exploration_and_development_expenses, other_employment_expenses, clergy_residence_deduction, other_deductions;
- 
+    double social_benefits_repayment, forces_police ,security_options, limited_partnership_losses_other_years;
+    double non_capital_losses_other_years,net_capital_losses_other_years,capital_gains_deduction;
+    double northern_residents_deductions, additional_deductions;
+    
+    //used for lines in the 30000s
+    double eligible_dependant_amount, canada_caregiver_amount_partner_dependant, canada_caregiver_amount_infirm_dependant;
+    double cpp_employment_income,cpp_self_employment_income, home_accessibility_expenses, pension_income_amount;
+    double disability_amount_self, disability_amount_dependant, tuition_education_amount, tuition_amount_child;
+    double amounts_transferred_partner, medical_expenses_other_dependants, donations_gifts;
    //User Input Functions
    public void personal_info(){ //first page of infomation   
         Scanner k = new Scanner(System.in);
@@ -599,6 +607,69 @@ public class TacoSauce2 {
         else return sum;
     }
    
+     double line23500(){
+        return social_benefits_repayment;
+    }
+    
+    double line23600(){     
+        double amount = arr[getLineIndex("23400", arr)].value - arr[getLineIndex("23500", arr)].value;
+        if (amount <= 0) return 0;
+        else return amount;
+    }
+    
+    double line24400(){
+        return forces_police;
+    }
+    
+    double line24900(){
+        return security_options;
+    }
+    
+    double line25000(){        
+        if(arr[getLineIndex("14600", arr)].value == 0.00) return arr[getLineIndex("14700", arr)].value;
+        else{
+            double amount = arr[getLineIndex("23400", arr)].value - (arr[getLineIndex("11700", arr)].value+arr[getLineIndex("12500", arr)].value);
+            amount += arr[getLineIndex("21300", arr)].value + arr[getLineIndex("23200", arr)].value;
+            return amount;
+        }
+    }
+    
+    double line25100(){
+        return limited_partnership_losses_other_years;
+    }
+    
+    double line25200(){
+        return non_capital_losses_other_years;
+    }
+    
+    double line25300(){
+        return net_capital_losses_other_years;
+    }
+    
+    double line25400(){
+        return capital_gains_deduction;
+    }
+    
+    double line25500(){
+        return northern_residents_deductions;
+    }
+    
+    double line25600(){
+        return additional_deductions;
+    }
+    
+    double line25700(){
+        double amount = arr[getLineIndex("24400", arr)].value + arr[getLineIndex("24900", arr)].value + arr[getLineIndex("25000", arr)].value;
+        amount += arr[getLineIndex("25100", arr)].value + arr[getLineIndex("25200", arr)].value + arr[getLineIndex("25300", arr)].value + arr[getLineIndex("25400", arr)].value;
+        amount += arr[getLineIndex("25500", arr)].value + arr[getLineIndex("25600", arr)].value;
+        return amount;
+    }
+    
+    double line26000(){
+        double amount = arr[getLineIndex("23600", arr)].value - arr[getLineIndex("25700", arr)].value;
+        if(amount <= 0) return 0;
+        else return amount;
+    }
    
    
    
@@ -634,6 +705,7 @@ public class TacoSauce2 {
     }
     
     public double line30300() {
+        //erorrs in here
         String inputu;
         //month and day of 55220
         int month;
@@ -667,6 +739,19 @@ public class TacoSauce2 {
         }
         return amount;
     }
+    
+    double line30400(){
+        return eligible_dependant_amount;
+    }
+    
+    double line30425(){
+        return canada_caregiver_amount_partner_dependant;
+    }
+    
+   double line30450(){
+       return canada_caregiver_amount_infirm_dependant;
+   }
+    
 
     public double line30499() {
         System.out.println("Canada caregiver amount for infirm children under 18 years of age\n"
@@ -680,12 +765,13 @@ public class TacoSauce2 {
         double n = arr[getLineIndex("30499", arr)].value;//money at 30499
         return n * 2230;
     }
-
-    public double line33099() {
-        System.out.println("What is Medical expenses for self, spouse or common-law partner, and your dependent children born in 2002 or later");
-        double value;
-        value = k.nextInt();
-        return value;
+    
+    double line30800(){
+        return cpp_employment_income;
+    }
+  
+    double line31000(){
+        return cpp_self_employment_income;
     }
     
     public double line31200(){
@@ -749,23 +835,10 @@ public class TacoSauce2 {
           }
     }
     
-    public double line31900(){
-        Scanner k = new Scanner(System.in);
-        String in;
-        double amount;
-        while(true){
-            System.out.println("If you received a loan under the Canada Student Loans Act, the Canada Student Financial Assistance Act, the Apprentice Loans Act, or similar provincial or territorial government laws for post-secondary education");
-            System.out.print("And you would like to claim the intrest agencied the taxs you owe for the 2019 TAX year(y/n)");
-            in = k.next();
-            if(in == "y"){
-                System.out.print("Please enter the amount you would like to claim. Due note you can claim any prevously unclaimed interest on your student loan from the past 5 years: ");
-                amount = k.nextDouble();
-                return amount;
-            }else if(in == "n") return 0;
-            else System.out.println("Please enter y or n");
-        }
-    }
-    
+    double line31285(){
+        return home_accessibility_expenses;
+    }   
+       
     public double line31300(){
          Scanner k = new Scanner(System.in);
           String in;
@@ -794,6 +867,57 @@ public class TacoSauce2 {
         }
     }
     
+    double line31400() {
+        return pension_income_amount;
+    }
+
+    double line31600() {
+        return disability_amount_self;
+    }
+
+    double line31800() {
+        return disability_amount_dependant;
+    }
+    
+     public double line31900(){
+        Scanner k = new Scanner(System.in);
+        String in;
+        double amount;
+        while(true){
+            System.out.println("If you received a loan under the Canada Student Loans Act, the Canada Student Financial Assistance Act, the Apprentice Loans Act, or similar provincial or territorial government laws for post-secondary education");
+            System.out.print("And you would like to claim the intrest agencied the taxs you owe for the 2019 TAX year(y/n)");
+            in = k.next();
+            if(in == "y"){
+                System.out.print("Please enter the amount you would like to claim. Due note you can claim any prevously unclaimed interest on your student loan from the past 5 years: ");
+                amount = k.nextDouble();
+                return amount;
+            }else if(in == "n") return 0;
+            else System.out.println("Please enter y or n");
+        }
+    }
+    double line32300() {
+        return tuition_education_amount;
+    }
+
+    double line32400() {
+        return tuition_amount_child;
+    }
+
+    double line32600() {
+        return amounts_transferred_partner;
+    }
+     
+    public double line33099() {
+        System.out.println("What is Medical expenses for self, spouse or common-law partner, and your dependent children born in 2002 or later");
+        double value;
+        value = k.nextInt();
+        return value;
+    }
+     
+    double line33199(){
+        return medical_expenses_other_dependants;
+    }
+  
     public double line33200(lines arr[]) {
         double n = 0.03 * arr[getLineIndex("23600", arr)].value;//money at 23600 * 0.03
         double L26 = 0;
@@ -818,9 +942,13 @@ public class TacoSauce2 {
     }
 
     public double line33800(lines arr[]) {
-        return arr[getLineIndex("33500", arr)].value * 1.15;
+        return arr[getLineIndex("33500", arr)].value * .15;
     }
-
+    
+    double line34900() {
+        return donations_gifts;
+    }
+    
     public double line35000(lines arr[]) {
         return arr[getLineIndex("33800", arr)].value + arr[getLineIndex("34900", arr)].value;
     }
