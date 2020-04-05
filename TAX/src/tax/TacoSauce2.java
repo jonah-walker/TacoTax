@@ -751,7 +751,7 @@ public class TacoSauce2 {
         return security_options;
     }
     
-    double line25000(){        
+    double line25000(lines arr[]){        
         if(arr[getLineIndex("14600", arr)].value == 0.00) return arr[getLineIndex("14700", arr)].value;
         else{
             double amount = arr[getLineIndex("23400", arr)].value - (arr[getLineIndex("11700", arr)].value+arr[getLineIndex("12500", arr)].value);
@@ -784,14 +784,14 @@ public class TacoSauce2 {
         return additional_deductions;
     }
     
-    double line25700(){
+    double line25700(lines arr[]){
         double amount = arr[getLineIndex("24400", arr)].value + arr[getLineIndex("24900", arr)].value + arr[getLineIndex("25000", arr)].value;
         amount += arr[getLineIndex("25100", arr)].value + arr[getLineIndex("25200", arr)].value + arr[getLineIndex("25300", arr)].value + arr[getLineIndex("25400", arr)].value;
         amount += arr[getLineIndex("25500", arr)].value + arr[getLineIndex("25600", arr)].value;
         return amount;
     }
     
-    double line26000(){
+    double line26000(lines arr[]){
         double amount = arr[getLineIndex("23600", arr)].value - arr[getLineIndex("25700", arr)].value;
         if(amount <= 0) return 0;
         else return amount;
