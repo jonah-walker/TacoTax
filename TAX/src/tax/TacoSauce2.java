@@ -69,9 +69,9 @@ public class TacoSauce2 {
     double Other_Income;//done
     String Other_Income_Specify;//done
     double Other_Taxables;//done
-    double gross_business_income=0, net_business_income, gross_professional_income, net_professional_income,gross_commission_income,net_commission_income; //self-employment income
-    double gross_farming_income, net_farming_income, gross_fishing_income, net_fishing_income;    //self-employment income
-    double workers_compensation_benefits, social_assistance,net_federal_supplements ;
+    double gross_business_income=0, net_business_income, gross_professional_income, net_professional_income,gross_commission_income,net_commission_income; //self-employment income  //done
+    double gross_farming_income, net_farming_income, gross_fishing_income, net_fishing_income;    //self-employment income  //done
+    double workers_compensation_benefits, social_assistance,net_federal_supplements ;   //done
     //the 20000's variables
     double pension_adjustment, registered_pension_plan_deduction, RRSP_deduction, PRPP_employer_contributions, deduction_for_elected_split_pension, annual_union_or_professional_dues;
     double universal_child_care_benefit_repayment, child_care_expenses, disability_supports_deduction , moving_expenses;
@@ -427,7 +427,22 @@ public class TacoSauce2 {
        net_fishing_income = k.nextDouble();
    }
    
+   public void F_workers_compensation_benefits(){
+       System.out.println("For Workers Compensation Benefit, enter the amount from box 10 of your T5007 slip. ");
+       workers_compensation_benefits = k.nextDouble();
+   }
    
+   public void F_social_assistance(){
+       System.out.println("For Social Assistance, enter the amount from box 11 of your T5007 slip or the federal part of your Quebec Relevé 5 slip of your tax return. ");
+       System.out.print("Enter the amount here: ");
+       social_assistance = k.nextDouble();
+   }
+   
+   public void F_net_federal_supplements(){
+       System.out.println("For net Ferderal Supplements, please enter the amount shown in box 21 of your T4A(OAS) slip. If the amount is negative, enter \"0\". ");
+       System.out.print("Enter the amount here: ");
+       net_federal_supplements = k.nextDouble();
+   }
    
    //Variables needed for Line Computation Functions
     double sum1to24_for30000s;
